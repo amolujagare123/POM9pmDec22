@@ -1,25 +1,23 @@
-package regression;
+package util;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
 import pages.Login;
-import util.OpenUrl;
 
 import java.io.IOException;
 
 import static util.ConfigReader.*;
 
-public class LoginTest extends OpenUrl {
+public class DoLogin extends OpenUrl {
 
-    @Test
-    public void loginTest() throws IOException {
+    @BeforeClass
+    public void doLogin() throws IOException {
 
         Login login = new Login(driver);
 
         login.setTxtUsername(getUsername());
         login.setTxtPassword(getPassword());
         login.clickLogin();
-       
     }
 }
