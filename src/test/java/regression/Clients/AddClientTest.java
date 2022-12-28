@@ -25,11 +25,15 @@ public class AddClientTest extends DoLogin {
 
         addClient.setTxtName("Priyanka");
         addClient.setTxtSurname("Rajput");
+        addClient.setLanguage("Thai");
         addClient.setTxtAddress1("xyz");
         addClient.setTxtAddress2("abc");
         addClient.setTxtCity("pune");
         addClient.setTxtState("maharashtra");
         addClient.setTxtZip("414001");
+        addClient.setCountry("Mexico");
+        addClient.setGender("Female");
+        addClient.setBirthDate("09/11/1985");
         addClient.setTxtPhone("78787878");
         addClient.setTxtFax("31323232");
         addClient.setTxtMobile("985454555");
@@ -38,7 +42,6 @@ public class AddClientTest extends DoLogin {
         addClient.setTxtVat("5454545");
         addClient.setTaxCode("121212");
         addClient.clickButtonSave();
-
 
 
     }
