@@ -1,5 +1,7 @@
 package regression.Clients;
 
+import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.Clients.AddClient;
@@ -17,7 +19,8 @@ public class AddClientDataProviderTest extends DoLogin {
                               String address1,String address2,String city,
                               String state,String zip,String country,String gender,
                               String birthdate,String phone,String fax,String mobile,
-                              String email,String web,String vat,String tax)
+                              String email,String web,String vat,String tax,
+                              String expected , String xpathActual )
     {
         Menu menu = new Menu(driver);
         menu.clickAddClient();
@@ -43,6 +46,21 @@ public class AddClientDataProviderTest extends DoLogin {
         addClient.setTxtVat(vat);
         addClient.setTaxCode(tax);
         addClient.clickButtonSave();
+
+
+        String actual = "";
+        try {
+            actual = driver.findElement(By.xpath(xpathActual)).getText();
+        }
+        catch (Exception e)
+        {
+
+        }
+
+        System.out.println("actual="+actual);
+        System.out.println("expected="+expected);
+        Assert.assertEquals(actual,expected,"incorrect or no message");
+
 
     }
 

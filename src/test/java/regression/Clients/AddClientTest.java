@@ -1,7 +1,9 @@
 package regression.Clients;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.Clients.AddClient;
@@ -23,7 +25,7 @@ public class AddClientTest extends DoLogin {
 
         AddClient addClient = new AddClient(driver);
 
-        addClient.setTxtName("Priyanka");
+        addClient.setTxtName("Priyanka1");
         addClient.setTxtSurname("Rajput");
         addClient.setLanguage("Thai");
         addClient.setTxtAddress1("xyz");
@@ -42,6 +44,19 @@ public class AddClientTest extends DoLogin {
         addClient.setTxtVat("5454545");
         addClient.setTaxCode("121212");
         addClient.clickButtonSave();
+
+        String expected = "Record successfully created";
+        String actual = "";
+        try {
+            actual = driver.findElement(By.xpath("//div[contains(@class,'alert')]")).getText();
+        }
+        catch (Exception e)
+        {
+
+        }
+        Assert.assertEquals(actual,expected,"incorrect or no message");
+
+
 
 
     }
