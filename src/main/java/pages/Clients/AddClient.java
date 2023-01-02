@@ -113,7 +113,7 @@ public class AddClient {
     WebElement searchBox;
 
     WebDriver driver;
-    public void setLanguage(String language)
+    public void setLanguage(String language) // english
     {
         containerLanguage.click();
         searchBox.sendKeys(language);
